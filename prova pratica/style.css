@@ -1,0 +1,133 @@
+header {
+  background-color: rgb(18, 19, 20);
+  margin: -8px;
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  text-decoration: none;
+  margin: 0%;
+  border: 0%;
+  padding: 0%;
+}
+
+.cabecalho_link {
+  border-style: solid;
+  border-color: rgb(212, 219, 114);
+  border-radius: 10px;
+  height: fit-content;
+  height: 2%;
+  margin-top: 5%;
+  background-color: rgb(212, 219, 114);
+  color: black;
+  transition: 1s;
+}
+
+.cabecalho_link:hover {
+  border-color: rgb(62, 174, 218);
+  background-color: rgb(62, 174, 218);
+}
+
+#logo {
+  width: 300px;
+  height: 250px;
+}
+
+#login_image {
+  width: 75px;
+  height: 75px;
+  height: fit-content;
+  margin-top: 100%;
+}
+
+body a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  background-color: rgb(48, 48, 48);
+}
+
+.ofertas {
+  display: flex;
+  justify-content: space-between;
+  gap: 5%;
+  overflow-x: auto;
+  flex-direction: row;
+  color: black;
+  margin-top: 3%;
+  margin-left: 5%;
+}
+
+.oferta {
+  color: white;
+  border-color: white;
+  padding: 5px;
+  width: fit-content;
+  height: 400px;
+  margin-bottom: 2%;
+  background-color: rgb(64, 64, 64);
+  box-shadow: 5px 3px 3px black;
+  transition: 1s;
+}
+
+.preco_antigo {
+  text-decoration: line-through;
+}
+.oferta img {
+  width: 200px;
+  height: 150px;
+}
+
+.produtos {
+  display: flex;
+  justify-content: space-between;
+  gap: 5%;
+  flex-direction: row;
+  color: black;
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.produto {
+  border: solid;
+  border-color: white;
+  width: 200px;
+  height: 350px;
+  background-color: rgb(238, 196, 118);
+  transition: 1s;
+  box-shadow: 10px 5px 5px black;
+}
+
+.produto img {
+  width: 200px;
+  height: 150px;
+}
+
+.produto:hover {
+  border-color: rgb(62, 174, 218);
+  background-color: rgb(62, 174, 218);
+}
+
+.oferta:hover {
+  border-color: rgb(62, 174, 218);
+  background-color: rgb(62, 174, 218);
+  box-shadow: none;
+}
+
+footer {
+  color: white;
+  margin-top: 3%;
+}
+
+.readme {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 5%;
+  font-size: 30px;
+  color: white;
+}
