@@ -1,0 +1,149 @@
+header {
+  background-color: rgb(20, 18, 18);
+  margin: -8px;
+  margin-bottom: 8px;
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  text-decoration: none;
+}
+
+.cabecalho_link {
+  border-style: solid;
+  border-color: rgb(62, 174, 218);
+  border-radius: 10px;
+  height: fit-content;
+  height: 2%;
+  margin-top: 5%;
+  background-color: rgb(62, 174, 218);
+  color: black;
+  transition: 1s;
+}
+
+.cabecalho_link:hover {
+  border-color: rgb(115, 197, 229);
+  background-color: rgb(115, 197, 229);
+}
+
+#logo {
+  width: 300px;
+  height: 250px;
+}
+
+body a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  background-color: rgb(48, 48, 48);
+}
+
+.ofertas {
+  display: flex;
+  justify-content: space-between;
+  gap: 5%;
+  overflow-x: auto;
+  flex-direction: row;
+  color: black;
+  margin-top: 3%;
+  margin-left: 5%;
+}
+
+.oferta {
+  color: white;
+  border-color: white;
+  padding: 5px;
+  width: fit-content;
+  height: 400px;
+  margin-bottom: 2%;
+  background-color: rgb(64, 64, 64);
+  transition: 1s;
+}
+
+.preco_antigo {
+  text-decoration: line-through;
+}
+.oferta img {
+  width: 200px;
+  height: 200px;
+}
+
+.produtos {
+  display: flex;
+  justify-content: space-between;
+  gap: 5%;
+  flex-direction: row;
+  color: black;
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.produto {
+  color: white;
+  border-color: white;
+  padding: 5px;
+  width: 200px;
+  height: 350px;
+  background-color: rgb(64, 64, 64);
+  transition: 1s;
+}
+
+.produto img {
+  width: 200px;
+  height: 200px;
+}
+
+.produto:hover {
+  border-color: rgb(62, 174, 218);
+  background-color: rgb(62, 174, 218);
+}
+
+.oferta:hover {
+  border-color: rgb(62, 174, 218);
+  background-color: rgb(62, 174, 218);
+  box-shadow: none;
+}
+
+footer {
+  color: white;
+  margin-top: 3%;
+}
+
+.readme {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 5%;
+  font-size: 30px;
+  color: white;
+}
+
+.painel{
+  margin-top: 15px;
+  color: white;
+}
+
+.nome_usuario{
+  color: white;
+  font-size: 20px;
+}
+
+#login_image {
+  width: 75px;
+  height: 75px;
+  margin-top: 70px;
+}
+
+.conta_usuario{
+  display: flex;
+  justify-content: space-between;
+}
+
+.login{
+  color: white;
+}
+
