@@ -33,6 +33,35 @@ header {
   height: 250px;
 }
 
+.painel{
+  margin-top: 15px;
+  color: white;
+}
+
+.nome_usuario_item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+#login_image {
+  width: 75px;
+  height: 75px;
+}
+
+.conta_usuario{
+  display: flex;
+  justify-content: space-between;
+}
+
+.login{
+  color: white;
+}
+
 body a {
   text-decoration: none;
   color: inherit;
@@ -64,9 +93,14 @@ body {
   transition: 1s;
 }
 
+.oferta:hover {
+  box-shadow: 5px 5px 5px rgb(112, 112, 112);
+}
+
 .preco_antigo {
   text-decoration: line-through;
 }
+
 .oferta img {
   width: 200px;
   height: 200px;
@@ -79,8 +113,8 @@ body {
   flex-direction: row;
   color: black;
   margin-top: 2%;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .produto {
@@ -93,20 +127,53 @@ body {
   transition: 1s;
 }
 
+.produto:hover {
+  box-shadow: 5px 5px 5px rgb(112, 112, 112);
+}
+
 .produto img {
   width: 200px;
   height: 200px;
 }
 
-.produto:hover {
-  border-color: rgb(62, 174, 218);
-  background-color: rgb(62, 174, 218);
+.descricao {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
 }
 
-.oferta:hover {
-  border-color: rgb(62, 174, 218);
-  background-color: rgb(62, 174, 218);
-  box-shadow: none;
+.comprar_btn_pai{
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-style: solid;
+  background-color: rgb(64, 64, 64);
+  border-color: black;
+  border-radius: 10px;
+  border-width: 4px;
+  gap: 5px;
+  padding-top: 5px;
+  padding-bottom: 2px;
+  transition: 1s;
+}
+
+.comprar_btn_pai:hover{
+  background-color: black;
+}
+
+.comprar_btn_filho{
+  margin-block-start: 0em; /*remove uma margem estranha q aparece*/ 
+  margin-block-end: 0em;
+  gap: 5px;
+}
+
+.icone{
+  fill: #73c5e5;
 }
 
 footer {
@@ -121,29 +188,3 @@ footer {
   font-size: 30px;
   color: white;
 }
-
-.painel{
-  margin-top: 15px;
-  color: white;
-}
-
-.nome_usuario{
-  color: white;
-  font-size: 20px;
-}
-
-#login_image {
-  width: 75px;
-  height: 75px;
-  margin-top: 70px;
-}
-
-.conta_usuario{
-  display: flex;
-  justify-content: space-between;
-}
-
-.login{
-  color: white;
-}
-
