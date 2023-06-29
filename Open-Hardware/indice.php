@@ -10,58 +10,56 @@
     <link rel="stylesheet" href="style.css" />
     <script async src="./script.js"></script>
   </head>
-  <header>
-    <div class="cabecalho">
-      <a href="indice.php">
-        <img id="logo" src="./images/Ohw-logo.svg.png" />
-      </a>
-      <a href="kit-upgrade.php" class="cabecalho_link">
-        <p>Kit-Upgrade</p>
-      </a>
-
-      <a href="periféricos.php" class="cabecalho_link">
-        <p>Periféricos</p>
-      </a>
-
-      <a href="hardware.php" class="cabecalho_link">
-        <p>Hardware</p>
-      </a>
-      <div class="conta_usuario">
-
-      <?php
-      
-      if(!isset($_SESSION)) {
-          session_start();
-      }
-
-      if(!isset($_SESSION['id'])) {
-        ?>
-        <div class="nome_usuario">
-            <p class="nome_usuario">Bem vindo: Convidado 
-              <a href="profile.php"> <img id="login_image" src="./images/6681204.png" class="nome_usuario"></a>
-              <a href="carrinho.php"> <img id="login_image" src="./images/1057168.png" class="nome_usuario"></a>
-            </p>
-        </div>
-        <?php
-      }
-      else{
-        ?>
-        <div class="nome_usuario">
-        <p>Bem vindo: <?php echo $_SESSION['nome']; ?> 
-          <a href="profile.php"> <img id="login_image" src="./images/6681204.png"></a>
-          <a href="carrinho.php"> <img id="login_image" src="./images/1057168.png"></a>
-        </p>
-        </div>
-        <?php
-      }
-      ?>
-
-    </div>
-    </div>
-  </header>
-
   <body>
-  
+    <header>
+      <div class="cabecalho">
+        <a href="indice.php">
+          <img id="logo" src="./images/Ohw-logo.svg.png" />
+        </a>
+        <a href="kit-upgrade.php" class="cabecalho_link">
+          <p>Kit-Upgrade</p>
+        </a>
+
+        <a href="periféricos.php" class="cabecalho_link">
+          <p>Periféricos</p>
+        </a>
+
+        <a href="hardware.php" class="cabecalho_link">
+          <p>Hardware</p>
+        </a>
+        <div class="conta_usuario">
+
+        <?php
+        
+        if(!isset($_SESSION)) {
+            session_start();
+        }
+
+        if(!isset($_SESSION['id'])) {
+          ?>
+          <div class="nome_usuario_item">
+              <p>Bem vindo: Convidado </p>
+                <a href="profile.php"> <img id="login_image" class="nome_usuario_item" src="./images/6681204.png"></a>
+                <a href="carrinho.php"> <img id="login_image" class="nome_usuario_item" src="./images/1057168.png"></a>
+          </div>
+          <?php
+        }
+        else{
+          ?>
+          <div class="nome_usuario_item">
+          <p>Bem vindo: <?php echo $_SESSION['nome']; ?> </p>
+            <a href="profile.php"> <img id="login_image" class="nome_usuario_item" src="./images/6681204.png"></a>
+            <a href="carrinho.php"> <img id="login_image" class="nome_usuario_item" src="./images/1057168.png"></a>
+          
+          </div>
+          <?php
+        }
+        ?>
+
+      </div>
+      </div>
+    </header>
+
     <div class="ofertas">
       <div class="oferta">
       <img src="./images/kit upgrade/Kit Upgrade Processador AMD Ryzen 5 5600G Placa-Mãe A520m Memória 16GB.png">
@@ -244,8 +242,6 @@
                 </div>
               </button>
         </div>
-    </div class="produtos">
-        <div class="produtos">
 
         <div class="produto">
             <img src="./images/kit upgrade/Processador Intel Core I5 10400 + Placa-Mãe Asrock H510m-Hvs + Memória RAM 16GB.png">
@@ -302,9 +298,7 @@
                 </div>
               </button>
         </div>
-    </div>
 
-    <div class="produtos">
         <div class="produto">
             <img src="./images/perifericos/Headset Gamer Havit Drivers 53mm Microfone Plugável.png">
             <p class="descricao">Headset Gamer Havit Drivers 53mm Microfone Plugável</p>
@@ -360,9 +354,7 @@
                 </div>
               </button>
         </div>
-    </div>
 
-    <div class="produtos">
         <div class="produto">
             <img src="./images/perifericos/Mousepad Gamer Husky Gaming Avalanche.png">
             <p class="descricao">Mousepad Gamer Husky Gaming Avalanche</p>
@@ -418,9 +410,7 @@
                 </div>
               </button>
         </div>
-    </div>
 
-    <div class="produtos">
         <div class="produto">
             <img src="./images/hardware/Fonte XPG Core Reactor 850W 80 Plus.png">
             <p class="descricao">Fonte XPG Core Reactor 850W 80 Plus</p>
@@ -476,8 +466,7 @@
                 </div>
               </button>
         </div>
-    </div>
-    <div class="produtos">
+
         <div class="produto">
             <img src="./images/hardware/Memória XPG Gammix D10 8GB 3200MHz DDR4.png">
             <p class="descricao">Memória XPG Gammix D10 8GB 3200MHz DDR4</p>
@@ -536,9 +525,8 @@
     </div>
     <footer class="rodape">
         <a href="readme.php" class="footer_link">
-            <p>Sobre a página
+            <p>Sobre a página</p>
         </a>
-            </p>
     </footer>
   </body>
 </html>

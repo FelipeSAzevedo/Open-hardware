@@ -48,6 +48,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
     <link rel="stylesheet" href="style.css" />
     <script async src="./script.js"></script>
   </head>
+  <body>
   <header>
     <div class="cabecalho">
       <a href="indice.php">
@@ -67,7 +68,6 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
 
     </div>
   </header>
-<body>
   <div class="login">
     <h1>Acesse sua conta</h1>
     <form action="" method="POST">

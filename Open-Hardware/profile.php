@@ -14,6 +14,7 @@ include('protect.php');
     <link rel="stylesheet" href="style.css" />
     <script async src="./script.js"></script>
   </head>
+  <body>
   <header>
     <div class="cabecalho">
       <a href="indice.php">
@@ -39,22 +40,21 @@ include('protect.php');
 
       if(!isset($_SESSION['id'])) {
         ?>
-        <div class="nome_usuario">
-            <p>Bem vindo: Convidado 
-              <a href="profile.php"> <img id="login_image" src="./images/6681204.png"></a>
-              <a href="carrinho.php"> <img id="login_image" src="./images/1057168.png"></a>
-            </p>
-      </div>
+        <div class="nome_usuario_item">
+            <p>Bem vindo: Convidado </p>
+              <a href="profile.php"> <img id="login_image" class="nome_usuario_item" src="./images/6681204.png"></a>
+              <a href="carrinho.php"> <img id="login_image" class="nome_usuario_item" src="./images/1057168.png"></a>
+        </div>
         <?php
       }
       else{
         ?>
-        <div class="nome_usuario">
-        <p>Bem vindo: <?php echo $_SESSION['nome']; ?> 
-          <a href="profile.php"> <img id="login_image" src="./images/6681204.png"></a>
-          <a href="carrinho.php"> <img id="login_image" src="./images/1057168.png"></a>
-        </p>
-        </div>
+        <div class="nome_usuario_item">
+          <p>Bem vindo: <?php echo $_SESSION['nome']; ?> </p>
+            <a href="profile.php"> <img id="login_image" class="nome_usuario_item" src="./images/6681204.png"></a>
+            <a href="carrinho.php"> <img id="login_image" class="nome_usuario_item" src="./images/1057168.png"></a>
+          
+          </div>
         <?php
       }
       ?>
@@ -62,7 +62,7 @@ include('protect.php');
 
     </div>
   </header>
-<body>
+
 <p class="painel">Bem vindo ao seu perfil, <?php echo $_SESSION['nome']; ?>.</p>
 
     <p>
