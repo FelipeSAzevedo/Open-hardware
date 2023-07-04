@@ -12,8 +12,7 @@ include('protect.php');
     <title>Open Hardware</title>
     <link rel="icon" href="./images/Ohw-logo.svg-mini.png" />
     <link rel="stylesheet" href="style.css" />
-    <script async src="./script.js"></script>
-    <script async src="./loja.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head>
   <body>
   <header>
@@ -65,6 +64,106 @@ include('protect.php');
   </header>
 
   <p class="painel">Bem vindo ao seu carrinho, <?php echo $_SESSION['nome']; ?>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+// Conexão com a base de dados
+$conexao = mysqli_connect("localhost", "root", "", "login");
+
+// Verifica se a conexão foi estabelecida com sucesso
+if ($conexao) {
+  // Consulta SQL para selecionar todas as especialidades médicas
+  $consulta = "SELECT * FROM especialidades";
+
+  // Executa a consulta SQL
+  $resultado = mysqli_query($conexao, $consulta);
+?>
+<body>
+  <header
+>    <!-- Cabeçalho da página -->
+    <nav class="navbar navbar-expand-llg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Hospital Mesquita dos Trabalhadores</a>
+      </div>
+    </nav>
+  </header>
+  <div class="container mt-5">
+    <h1>Lista de Especialidades Médicas</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Subtotal</th>
+          <th>Quantidade</th>
+          <th>Nome</th>
+          <th>Descricao</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+      // Loop para exibir as especialidades médicas
+      while ($especialidade = mysqli_fetch_assoc($resultado)) {
+      ?>
+        <tr>
+          <td><?php echo $especialidade['preco']; ?></td>
+          <td><?php echo $especialidade['quantidade']; ?></td>
+          <td><?php echo $especialidade['nome']; ?></td>
+          <td><?php echo $especialidade['descricao']; ?></td>
+          <td>
+            <a href="carrinho_alterar.php?id=<?php echo $especialidade['id']; ?>&tipo=1" class="btn btn-primary" id="remover">-</a>
+          </td>
+
+          <td>
+            <a href="carrinho_alterar.php?id=<?php echo $especialidade['id']; ?>&tipo=2" class="btn btn-primary" id="adicionar">+</a>
+          </td>
+
+          <td>
+            <a href="carrinho_excluir.php?id=<?php echo $especialidade['id']; ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir esta especialidade?') " >Excluir</a>
+          </td>
+        </tr>
+      <?php
+      }
+      ?>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+<?php
+  // Fecha a conexão com a base de dados
+  mysqli_close($conexao);
+} else {
+  echo "Falha na conexão com a base de dados: " . mysqli_connect_error();
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
     <footer class="rodape">
         <a href="readme.php" class="footer_link">
