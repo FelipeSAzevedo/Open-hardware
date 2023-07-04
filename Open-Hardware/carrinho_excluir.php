@@ -1,7 +1,7 @@
 <?php
 // Verifica se o ID da especialidade a ser excluída foi fornecido
-if(isset($_GET['id'])) {
-    $id = $_GET['id'];
+if(isset($_GET['id_produto'])) {
+    $id = $_GET['id_produto'];
   
     // Conexão com a base de dados
     $conexao = mysqli_connect("localhost", "root", "", "login");
@@ -9,7 +9,7 @@ if(isset($_GET['id'])) {
     // Verifica se a conexão foi estabelecida com sucesso
     if ($conexao) {
         // Consulta SQL para excluir a especialidade médica com o ID fornecido
-        $consulta = "DELETE FROM especialidades WHERE id = '$id'";
+        $consulta = "DELETE FROM especialidades WHERE id_produto = '$id'";
 
         // Executa a consulta SQL
         $resultado = mysqli_query($conexao, $consulta);

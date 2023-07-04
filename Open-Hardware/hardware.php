@@ -35,7 +35,7 @@
           session_start();
       }
 
-      if(!isset($_SESSION['id'])) {
+      if(!isset($_SESSION['id_usuario'])) {
         ?>
         <div class="nome_usuario_item">
             <p>Bem vindo: Convidado </p>
@@ -60,7 +60,7 @@
   </header>
 
     <div class="produtos">
-        <div class="produto">
+        <div class="produto" id="">
             <img src="./images/hardware/Fonte XPG Core Reactor 850W 80 Plus.png">
             <p class="descricao">Fonte XPG Core Reactor 850W 80 Plus</p>
             <p>R$: 29.90</p>

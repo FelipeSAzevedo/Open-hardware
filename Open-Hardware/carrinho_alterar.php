@@ -1,9 +1,9 @@
 <?php
 // Verifica se o parâmetro "id" foi passado na URL
-if (isset($_GET['id'])) {
+if (isset($_GET['id_produto'])) {
     if (isset($_GET['tipo'])) {
     // Obtém o valor do parâmetro "id"
-    $id = $_GET['id'];
+    $id = $_GET['id_produto'];
     $tipo =  $_GET['tipo'];
 
     // Conexão com a base de dados
@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
     // Verifica se a conexão foi estabelecida com sucesso
     if ($conexao) {
       // Consulta SQL para selecionar a especialidade médica com base no "id"
-      $consulta = "SELECT * FROM especialidades WHERE id = '$id'";
+      $consulta = "SELECT * FROM especialidades WHERE id_produto = '$id'";
 
       // Executa a consulta SQL
       $resultado = mysqli_query($conexao, $consulta);
@@ -28,10 +28,10 @@ if (isset($_GET['id'])) {
 
           if($tipo == 1){
           
-            $atualizar = "UPDATE especialidades SET quantidade = quantidade -1, descricao = '$descricao' WHERE id = '$id'";
+            $atualizar = "UPDATE especialidades SET quantidade = quantidade -1, subtotal = quantidade * preco WHERE id_produto = '$id'";
             $resultado_atualizar = mysqli_query($conexao, $atualizar);
           }else{
-            $atualizar = "UPDATE especialidades SET quantidade = quantidade +1, descricao = '$descricao' WHERE id = '$id'";
+            $atualizar = "UPDATE especialidades SET quantidade = quantidade +1, subtotal = quantidade * preco WHERE id_produto = '$id'";
             $resultado_atualizar = mysqli_query($conexao, $atualizar);
           }
 

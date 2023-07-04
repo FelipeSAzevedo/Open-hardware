@@ -34,7 +34,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
         else{
 
         
-            $sql_code = "INSERT INTO usuarios (email, senha, nome, cpf) VALUES ('$email', '$senha', '$nome', '$cpf')"; 
+            $sql_code = "INSERT INTO usuarios (email, senha, nome, cpf) VALUES ('$email', '$senha', '$nome', '$cpf')";
             //injetando no banco de dados com sucesso
 
             $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
@@ -52,7 +52,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
                     session_start();
                 }
 
-                $_SESSION['id'] = $usuario['id'];
+                $_SESSION['id_usuario'] = $usuario['id_usuario'];
                 $_SESSION['nome'] = $usuario['nome'];
 
                 header("Location: profile.php");

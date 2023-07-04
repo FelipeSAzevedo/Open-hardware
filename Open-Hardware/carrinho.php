@@ -38,7 +38,7 @@ include('protect.php');
           session_start();
       }
 
-      if(!isset($_SESSION['id'])) {
+      if(!isset($_SESSION['id_usuario'])) {
         ?>
         <div class="nome_usuario_item">
             <p>Bem vindo: Convidado </p>
@@ -65,28 +65,14 @@ include('protect.php');
 
   <p class="painel">Bem vindo ao seu carrinho, <?php echo $_SESSION['nome']; ?>.</p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 // Conexão com a base de dados
 $conexao = mysqli_connect("localhost", "root", "", "login");
 
-// Verifica se a conexão foi estabelecida com sucesso
+
 if ($conexao) {
-  // Consulta SQL para selecionar todas as especialidades médicas
-  $consulta = "SELECT * FROM especialidades";
+  
+  $consulta = "SELECT * FROM especialidades, usuarios WHERE especialidades.id_carrinho = usuarios.id_usuario";
 
   // Executa a consulta SQL
   $resultado = mysqli_query($conexao, $consulta);
@@ -117,20 +103,18 @@ if ($conexao) {
       while ($especialidade = mysqli_fetch_assoc($resultado)) {
       ?>
         <tr>
-          <td><?php echo $especialidade['preco']; ?></td>
+          <td> R$ <?php echo $especialidade['subtotal']; ?></td>
           <td><?php echo $especialidade['quantidade']; ?></td>
           <td><?php echo $especialidade['nome']; ?></td>
           <td><?php echo $especialidade['descricao']; ?></td>
           <td>
-            <a href="carrinho_alterar.php?id=<?php echo $especialidade['id']; ?>&tipo=1" class="btn btn-primary" id="remover">-</a>
+            <a href="carrinho_alterar.php?id_produto=<?php echo $especialidade['id_produto']; ?>&tipo=1" class="btn btn-primary">-</a>
+
+            <a href="carrinho_alterar.php?id_produto=<?php echo $especialidade['id_produto']; ?>&tipo=2" class="btn btn-primary">+</a>
           </td>
 
           <td>
-            <a href="carrinho_alterar.php?id=<?php echo $especialidade['id']; ?>&tipo=2" class="btn btn-primary" id="adicionar">+</a>
-          </td>
-
-          <td>
-            <a href="carrinho_excluir.php?id=<?php echo $especialidade['id']; ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir esta especialidade?') " >Excluir</a>
+            <a href="carrinho_excluir.php?id_produto=<?php echo $especialidade['id_produto']; ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir esta especialidade?') " >Excluir</a>
           </td>
         </tr>
       <?php
