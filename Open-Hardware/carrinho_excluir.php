@@ -1,7 +1,9 @@
 <?php
-// Verifica se o ID da especialidade a ser excluída foi fornecido
-if(isset($_GET['id_produto'])) {
-    $id = $_GET['id_produto'];
+
+include('protect.php');
+
+if(isset($_GET['id_carrinho'])) {
+    $id = $_GET['id_carrinho'];
   
     // Conexão com a base de dados
     $conexao = mysqli_connect("localhost", "root", "", "login");
@@ -9,13 +11,13 @@ if(isset($_GET['id_produto'])) {
     // Verifica se a conexão foi estabelecida com sucesso
     if ($conexao) {
         // Consulta SQL para excluir a especialidade médica com o ID fornecido
-        $consulta = "DELETE FROM especialidades WHERE id_produto = '$id'";
+        $consulta = "DELETE FROM carrinho WHERE id_carrinho = '$id'";
 
         // Executa a consulta SQL
         $resultado = mysqli_query($conexao, $consulta);
 
         if ($resultado) {
-            // Exclusão bem-sucedida, redireciona de volta à página de listagem de especialidades
+            // Exclusão bem-sucedida, redireciona de volta à página de listagem de carrinho
             header("Location: carrinho.php");
             exit();
         } else {

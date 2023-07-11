@@ -1,59 +1,41 @@
 <?php
-// Verifica se o parâmetro "id" foi passado na URL
-if (isset($_GET['id_produto'])) {
+
+include('protect.php');
+
+if (isset($_GET['id_carrinho'])) {
     if (isset($_GET['tipo'])) {
-    // Obtém o valor do parâmetro "id"
-    $id = $_GET['id_produto'];
+    $id = $_GET['id_carrinho'];
     $tipo =  $_GET['tipo'];
 
-    // Conexão com a base de dados
     $conexao = mysqli_connect("localhost", "root", "", "login");
 
-    // Verifica se a conexão foi estabelecida com sucesso
     if ($conexao) {
-      // Consulta SQL para selecionar a especialidade médica com base no "id"
-      $consulta = "SELECT * FROM especialidades WHERE id_produto = '$id'";
-
-      // Executa a consulta SQL
+      $consulta = "SELECT * FROM carrinho WHERE id_carrinho = '$id'";
       $resultado = mysqli_query($conexao, $consulta);
 
-      // Verifica se a consulta retornou alguma linha
       if (mysqli_num_rows($resultado) > 0) {
-        // Obtém os dados da especialidade médica
         $especialidade = mysqli_fetch_assoc($resultado);
-
-
-        // Obtém os dados enviados pelo formulário
-          $quantidade = $_POST["quantidade"];
 
           if($tipo == 1){
           
-            $atualizar = "UPDATE especialidades SET quantidade = quantidade -1, subtotal = quantidade * preco WHERE id_produto = '$id'";
+            $atualizar = "UPDATE carrinho SET quantidade = quantidade -1, subtotal = quantidade * preco WHERE id_carrinho = '$id'";
             $resultado_atualizar = mysqli_query($conexao, $atualizar);
-          }else{
-            $atualizar = "UPDATE especialidades SET quantidade = quantidade +1, subtotal = quantidade * preco WHERE id_produto = '$id'";
+          }
+          if($tipo == 2){
+            $atualizar = "UPDATE carrinho SET quantidade = quantidade +1, subtotal = quantidade * preco WHERE id_carrinho = '$id'";
             $resultado_atualizar = mysqli_query($conexao, $atualizar);
           }
 
           if ($resultado_atualizar) {
-            echo "Especialidade médica atualizada com sucesso!";
-            // Redireciona para a página de listagem de especialidades após 3 segundos
             header("Location: carrinho.php");
           } else {
-            echo "Ocorreu um erro ao atualizar a especialidade médica: " . mysqli_error($conexao);
+            echo "Ocorreu um erro: " . mysqli_error($conexao);
           }
-        
-      } else {
-        echo "Especialidade médica não encontrada.";
       }
-
-      // Fecha a conexão com a base de dados
       mysqli_close($conexao);
     } else {
       echo "Falha na conexão com a base de dados: " . mysqli_connect_error();
     }
   }
-} else {
-  echo "ID da especialidade médica não fornecido.";
 }
 ?>

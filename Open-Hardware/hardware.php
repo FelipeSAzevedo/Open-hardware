@@ -174,8 +174,9 @@
     </div>
     <footer class="rodape">
       <a href="readme.php" class="footer_link">
-              <p>Sobre a página</p>
-          </a>
+        <p>Sobre a página</p>
+      </a>
+
     </footer>
 </body>
 

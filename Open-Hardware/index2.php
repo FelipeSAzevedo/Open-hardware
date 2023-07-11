@@ -20,9 +20,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
         $nome = $mysqli->real_escape_string($_POST['nome']);
         $cpf = $mysqli->real_escape_string($_POST['cpf']);
 
-        ///////////////////////////////////////////////////////////////////////////////////////
-                                 //verifica se o email ja esta sendo usado//
-        ///////////////////////////////////////////////////////////////////////////////////////
+
         $sql_code = "SELECT * FROM usuarios WHERE email = '$email'";
         $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
@@ -35,12 +33,11 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
 
         
             $sql_code = "INSERT INTO usuarios (email, senha, nome, cpf) VALUES ('$email', '$senha', '$nome', '$cpf')";
-            //injetando no banco de dados com sucesso
-
             $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
             $sql_code = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
             $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+
 
             $quantidade = $sql_query->num_rows;
 
@@ -54,6 +51,12 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
 
                 $_SESSION['id_usuario'] = $usuario['id_usuario'];
                 $_SESSION['nome'] = $usuario['nome'];
+
+                //cria o carrinho do usuário
+
+                //$var = $_SESSION['id_usuario'];
+                //$sql_code = "INSERT INTO especialidades (id_usuario) VALUES ('$var')";
+                //$sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
                 header("Location: profile.php");
 
