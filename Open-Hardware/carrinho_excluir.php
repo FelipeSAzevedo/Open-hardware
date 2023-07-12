@@ -6,7 +6,7 @@ if(isset($_GET['id_carrinho'])) {
     $id = $_GET['id_carrinho'];
   
     // Conexão com a base de dados
-    $conexao = mysqli_connect("localhost", "root", "", "login");
+    $conexao = mysqli_connect("localhost", "root", "", "login1");
 
     // Verifica se a conexão foi estabelecida com sucesso
     if ($conexao) {

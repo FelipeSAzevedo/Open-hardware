@@ -67,14 +67,14 @@ include('protect.php');
 
 <?php
 // Conexão com a base de dados
-$conexao = mysqli_connect("localhost", "root", "", "login");
+$conexao = mysqli_connect("localhost", "root", "", "login1");
 
 if ($conexao) {
 
   $var = $_SESSION['id_usuario'];
 
   $consulta = 
-  "SELECT usuarios.id_usuario, carrinho.id_carrinho, carrinho.id_usuario, carrinho.nome, carrinho.preco, carrinho.quantidade, carrinho.subtotal ,carrinho.descricao
+  "SELECT usuarios.id_usuario, carrinho.id_carrinho, carrinho.id_usuario, carrinho.nome, carrinho.preco, carrinho.quantidade, carrinho.subtotal 
 
   FROM carrinho, usuarios 
   
@@ -89,10 +89,9 @@ if ($conexao) {
     <table class="table">
       <thead>
         <tr>
+          <th>Nome</th>
           <th>Subtotal</th>
           <th>Quantidade</th>
-          <th>Nome</th>
-          <th>Descricao</th>
         </tr>
       </thead>
       <tbody>
@@ -101,10 +100,10 @@ if ($conexao) {
       while ($especialidade = mysqli_fetch_assoc($resultado)) {
       ?>
         <tr>
+
+          <td><?php echo $especialidade['nome']; ?></td>
           <td> R$ <?php echo $especialidade['subtotal']; ?></td>
           <td><?php echo $especialidade['quantidade']; ?></td>
-          <td><?php echo $especialidade['nome']; ?></td>
-          <td><?php echo $especialidade['descricao']; ?></td>
           <td>
             <a href="carrinho_alterar.php?id_carrinho=<?php echo $especialidade['id_carrinho']; ?>&tipo=1" class="btn btn-primary">-</a>
 

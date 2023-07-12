@@ -7,7 +7,7 @@ if (isset($_GET['id_carrinho'])) {
     $id = $_GET['id_carrinho'];
     $tipo =  $_GET['tipo'];
 
-    $conexao = mysqli_connect("localhost", "root", "", "login");
+    $conexao = mysqli_connect("localhost", "root", "", "login1");
 
     if ($conexao) {
       $consulta = "SELECT * FROM carrinho WHERE id_carrinho = '$id'";
