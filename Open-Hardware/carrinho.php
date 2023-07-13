@@ -74,7 +74,7 @@ if ($conexao) {
   $var = $_SESSION['id_usuario'];
 
   $consulta = 
-  "SELECT usuarios.id_usuario, carrinho.id_carrinho, carrinho.id_usuario, carrinho.nome, carrinho.preco, carrinho.quantidade, carrinho.subtotal 
+  "SELECT usuarios.id_usuario, carrinho.id_carrinho, carrinho.id_usuario, carrinho.id_produto,carrinho.nome, carrinho.preco, carrinho.quantidade, carrinho.subtotal 
 
   FROM carrinho, usuarios 
   
@@ -105,13 +105,21 @@ if ($conexao) {
           <td> R$ <?php echo $especialidade['subtotal']; ?></td>
           <td><?php echo $especialidade['quantidade']; ?></td>
           <td>
-            <a href="carrinho_alterar.php?id_carrinho=<?php echo $especialidade['id_carrinho']; ?>&tipo=1" class="btn btn-primary">-</a>
+            <a href="carrinho_alterar.php?
+            id_carrinho=<?php echo $especialidade['id_carrinho']; ?>&
+            tipo=1&
+            id_produto=<?php echo $especialidade['id_produto']; ?>"
+            class="btn btn-primary">-</a>
 
-            <a href="carrinho_alterar.php?id_carrinho=<?php echo $especialidade['id_carrinho']; ?>&tipo=2" class="btn btn-primary">+</a>
+            <a href="carrinho_alterar.php?
+            id_carrinho=<?php echo $especialidade['id_carrinho']; ?>&
+            tipo=2&
+            id_produto=<?php echo $especialidade['id_produto']; ?>" 
+            class="btn btn-primary">+</a>
           </td>
 
           <td>
-            <a href="carrinho_excluir.php?id_carrinho=<?php echo $especialidade['id_carrinho']; ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir esta especialidade?') " >Excluir</a>
+            <a href="carrinho_excluir.php?id_carrinho=<?php echo $especialidade['id_carrinho']; ?>&id_produto=<?php echo$especialidade['id_produto']; ?>" class="btn btn-danger">Excluir</a>
           </td>
         </tr>
       <?php
@@ -130,11 +138,5 @@ if ($conexao) {
   echo "Falha na conexão com a base de dados: " . mysqli_connect_error();
 }
 ?>
-
-    <footer class="rodape">
-        <a href="readme.php" class="footer_link">
-            <p>Sobre a página</p>
-        </a>
-    </footer>
   </body>
 </html>
